@@ -27,16 +27,14 @@ public class Main {
             driver.manage().window().maximize();
             WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
             driver.navigate().to("http://www.strela.co.rs/");
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-
-            WebElement prodavnica = driver.findElement(By.xpath("//*[@id=\"ctl00_RadMenu1\"]/ul/li[2]"));
-            driverWait.until(ExpectedConditions.elementToBeClickable(prodavnica));
+            WebElement prodavnica = driver.findElement(By.xpath("//*[@id='ctl00_RadMenu1']/ul/li[2]"));
             prodavnica.click();
-            WebElement lukovi = driver.findElement(By.xpath("//*[@id=\"ctl00_MainContent_GrupeRadTreeView\"]/ul/li[1]/div/span[3]"));
-            driverWait.until(ExpectedConditions.elementToBeClickable(lukovi));
+            WebElement lukovi = driver.findElement(By.xpath("//*[@id='ctl00_MainContent_GrupeRadTreeView']/ul/li[1]/div/span[3]"));
             lukovi.click();
-            WebElement samick = driver.findElement(By.xpath("/html/body/form/div[4]/div/section/div/div[2]/div/div[2]/section/div[36]/figure"));
-            driverWait.until(ExpectedConditions.visibilityOf(samick));
+            WebElement samick = driver.findElement(By.xpath("//*[@id='ctl00_MainContent_ListView1_ctrl35_Panel1']/figure/a/img"));
             samick.click();
 
 
